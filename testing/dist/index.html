@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>email-order-component</title>
+    <script defer="defer" src="/mylibrary.bundle.ff76c3f655d0e568.js"></script>
+    <link href="/css/app.1c368fb3.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <nav id="navbar" class="navbar navbar-default navbar-fixed-top"></nav>
+      <div class="vue-content"><div id="MailOrdersAppComponent"></div></div>
+    </div>
+    <footer class="footer"></footer>
+    <script type="module">
+      var EmailOrderComponent = MyLibrary.EmailOrderComponent;
+
+      var apiEndpoint = "http://localhost:8000/api/getOrders.php"; // inserire qui l'endpoint api
+
+      var app = MyLibrary.createApp(EmailOrderComponent, {
+        apiEndpoint: apiEndpoint,
+      }).mount("#MailOrdersAppComponent"); // inserire qui il punto di montaggio desiderato
+    </script>
+  </body>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: "Lyon Text OSF Web", Georgia, "Times New Roman", Times, serif;
+      font-size: 18px;
+      background: transparent;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    #app {
+      flex: 1;
+      padding-top: 64px;
+      padding-bottom: 160px;
+    }
+
+    footer {
+      width: 100%;
+      height: 160px;
+      background-color: #002440;
+      color: #fff;
+      position: relative;
+      bottom: 0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .navbar {
+      border: 0;
+      background-color: #002440;
+      height: 64px;
+    }
+
+    .vue-content {
+      max-width: 1000px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media (min-width: 500px) {
+      .vue-content {
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</html>
