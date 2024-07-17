@@ -26,7 +26,7 @@ try {
             $db->join("users u", "o.user_id=u.id", "INNER");
             $db->where("u.email", $email);
             $db->where("o.order_date", $thirtyDaysAgo, ">=");
-            $orders = $db->get("orders o", null, "o.*, u.*");
+            $orders = $db->get("orders o", null, "o.id as order_id, o.details as order_details, o.order_date as order_date, u.id as user_id, u.name as user_name, u.email as user_email");
 
             if ($orders) {
 
@@ -40,8 +40,8 @@ try {
                 ];
                 foreach ($orders as $order) {
                     $response['orders'][] = [
-                        'order_id' => $order['id'],
-                        'order_details' => $order['details'],
+                        'order_id' => $order['order_id'],
+                        'order_details' => $order['order_details'],
                         'order_date' => $order['order_date']
 
                     ];
